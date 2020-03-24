@@ -13,15 +13,13 @@
 
 <%post.comments.each do |comment|%>
     <%=comment.user.name%><br><br>
-   <%=comment.message%> <br>
+   <%=comment.message%> 
+   <%if comment.user.id == session[:user_id] %>
+   <%= link_to "Edit", edit_comment_path(comment)%><br>
+   <%end%>
     <%end%>
-<% byebug %>
-        <%=form_for @comment, url: {controller: "comments", action: "create"} do |f|%>
-        <%=t.text_field :message%>
-        <%=t.text_field :id%>
-        <%=t.submit "submit"%>
-        
-        <%end%>
+
+
 <%= link_to "Add a comment", new_comment_path%>
 </div>
 </div>
