@@ -23,3 +23,25 @@
     99%{    color:transparent;  }
     100%{   color: #000;    }
 }
+
+.post_div {
+background-color: #ffff;
+border-radius: 5px;
+padding: 10px;
+margin-left: 20px;
+margin-right: 50%;
+margin-bottom: 15px;
+}
+
+.text_div {
+    margin-left: 20px; 
+}
+
+.background_div {
+    background-color: #e8ebee;  
+}
+
+.blue-text {
+    color: #2c8cff;
+    font-weight: 600;
+}
