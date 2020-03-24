@@ -16,7 +16,7 @@
    <%=comment.message%> 
    <%if comment.user.id == session[:user_id] %>
    <%= link_to "Edit", edit_comment_path(comment)%><br>
-   <%end%>
+   <%end%> <br><br>
     <%end%>
 
 

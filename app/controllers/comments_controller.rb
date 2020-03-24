@@ -6,8 +6,9 @@ class CommentsController < ApplicationController
     end
 
     def create
-        @comment = Comment.create(message: params[:comment][:message], user_id: session[:user_id])
-        byebug
+        @post = Post.find(params[:id])
+        @comment = Comment.new(message: params[:comment][:message], user_id: session[:user_id], post_id: @post.id )
+        @comment.save
         redirect_to posts_path
     end
 
