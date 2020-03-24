@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(first_name: params[:user][:first_name],last_name: params[:user][:last_name])
+    user = User.find_by(email: params[:user][:email])
 
     user = user.try(:authenticate, params[:user][:password])
 
@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
       @user = user
       redirect_to controller: 'welcome', action: 'home'
     else
-      flash[:message] = 'User dose not exists'
-      return redirect_to(controller: 'sessions', action: 'new') unless user
+      flash[:message] = 'User does not exists'
+      redirect_to controller: 'sessions', action: 'new'
     end  
     # return redirect_to(controller: 'sessions', action: 'new') unless user
 
