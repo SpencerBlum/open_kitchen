@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <% flash.each do |name, msg| -%>
+      <span class="blinking"><%= content_tag :div, msg, class: name %></span>
+    <% end -%>
     <%= yield %>
   </body>
 </html>
