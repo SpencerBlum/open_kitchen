@@ -15,12 +15,11 @@
     <%=comment.user.name%><br><br>
    <%=comment.message%> 
    <%if comment.user.id == session[:user_id] %>
-   <%= link_to "Edit", edit_comment_path(comment)%><br>
+   <%= link_to "Edit", "/comments/edit/#{post.id}" %><br>
    <%end%> <br><br>
     <%end%>
 
-
-<%= link_to "Add a comment", new_comment_path%>
+<%= link_to "Add a comment", new_comment_path(post)%>
 </div>
 </div>
 <%end%>

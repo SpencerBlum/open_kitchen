@@ -1,5 +1,5 @@
 
-<%= form_for(@comment) do |f| %>
+<%= form_for(@comment, url: "/comments/#{@post.id}") do |f| %>
 <%= f.label :NewComment%>
 <%= f.text_field :message%>
 <%= f.submit "Save"%>
