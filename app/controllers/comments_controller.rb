@@ -15,15 +15,14 @@ class CommentsController < ApplicationController
     end
 
     def edit
-        @post = Post.find(params[:id])
+        # @post = Post.find(params[:id])
         @comment = Comment.find(params[:id])
-        byebug
+        # byebug
     end
-
     def update
-        @post = Post.find(params[:id])
-        @comment.find(params[:id])
-        @comment.update(message: params[:comment][:message], user_id: session[:user_id], post_id: @post.id)
+        # @post = Post.find(params[:id])
+        @comment = Comment.find(params[:id])
+        @comment.update(message: params[:comment][:message], user_id: @comment.user_id, post_id: @comment.post_id)
         redirect_to posts_path
     end
 

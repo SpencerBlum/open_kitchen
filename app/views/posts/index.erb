@@ -5,7 +5,7 @@
 <%@posts.each do |post|%>
 <div class = "post_div">
 <div class = "text_div">
-<h3 class = "blue-text"> <%= post.restaurant.name %> </h3>  
+<h3 class = "blue-text"> <%= link_to post.restaurant.name, restaurant_path(post.restaurant.id) %> </h3>  
 <h4> <%= post.title %> </h4>  
 
 <h5> <%= post.message %> </h5>
@@ -15,7 +15,7 @@
     <%=comment.user.name%><br><br>
    <%=comment.message%> 
    <%if comment.user.id == session[:user_id] %>
-   <%= link_to "Edit", "/comments/edit/#{post.id}" %><br>
+   <%= link_to "Edit", edit_comment_path(comment) %><br>
    <%end%> <br><br>
     <%end%>
 
