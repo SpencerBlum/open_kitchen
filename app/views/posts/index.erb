@@ -1,0 +1,27 @@
+
+
+<h1>Feed</h1>
+
+<%@posts.each do |post|%>
+<div class = "post_div">
+<div class = "text_div">
+<h3 class = "blue-text"> <%= link_to post.restaurant.name, restaurant_path(post.restaurant.id) %> </h3>  
+<h4> <%= post.title %> </h4>  
+
+<h5> <%= post.message %> </h5>
+<h5>comments:</h5>
+
+<%post.comments.each do |comment|%>
+    <%=comment.user.name%><br><br>
+   <%=comment.message%> 
+   <%if comment.user.id == session[:user_id] %>
+   <%= link_to "Edit", edit_comment_path(comment) %><br>
+   <%end%> <br><br>
+    <%end%>
+
+<%= link_to "Add a comment", new_comment_path(post)%>
+</div>
+</div>
+<%end%>
+
+

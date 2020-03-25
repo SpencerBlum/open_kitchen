@@ -10,7 +10,6 @@ User.destroy_all
 Restaurant.destroy_all
 Post.destroy_all
 Comment.destroy_all
-PostComment.destroy_all
 
 puts "Your data is destroyed"
 
@@ -30,13 +29,9 @@ end
 puts "3"
 
 3.times do
-    Comment.create(message: Faker::Restaurant.review, user_id: User.all.sample.id)
+    Comment.create(message: Faker::Restaurant.review, user_id: User.all.sample.id, post_id: Post.all.sample.id)
 end
 puts "4"
-
-3.times do
-    PostComment.create(post_id: Post.all.sample.id , comment_id: Comment.all.sample.id)
-end
 
 puts "Your data is seeded"
 

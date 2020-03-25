@@ -9,7 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class = "background_div">
     <% flash.each do |name, msg| -%>
       <span class="blinking"><%= content_tag :div, msg, class: name %></span>
     <% end -%>
