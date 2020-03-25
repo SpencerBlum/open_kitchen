@@ -6,6 +6,7 @@
 <div class = "post_div">
 <div class = "text_div">
 <h3 class = "blue-text"> <%= link_to post.restaurant.name, restaurant_path(post.restaurant.id) %> </h3>  
+<img src="https://dl.airtable.com/.attachmentThumbnails/e90acd19635b360ba75a5e0d47cbef0f/d76972aa" style="height:100px;">
 <h4> <%= post.title %> </h4>  
 
 <h5> <%= post.message %> </h5>
@@ -15,11 +16,12 @@
     <%=comment.user.name%><br><br>
    <%=comment.message%> 
    <%if comment.user.id == session[:user_id] %>
-   <%= link_to "Edit", edit_comment_path(comment) %><br>
+   <%= link_to "Edit", edit_post_comment_path(post,comment) %><br>
+  
    <%end%> <br><br>
     <%end%>
 
-<%= link_to "Add a comment", new_comment_path(post)%>
+<%= link_to "Add a comment", new_post_comment_path(post)%>
 </div>
 </div>
 <%end%>
