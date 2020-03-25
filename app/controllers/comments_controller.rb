@@ -21,11 +21,11 @@ class CommentsController < ApplicationController
         # byebug
     end
     def update
-         @post = Post.find(params[:id])
-        @comment = Comment.find(params[:id])
-        @comment.update(message: params[:comment][:message], user_id: @comment.user_id, post_id: @comment.post_id)
-        redirect_to posts_path
-    end
+        @post = Post.find(params[:post_id])
+       @comment = Comment.find(params[:id])
+       @comment.update(message: params[:comment][:message], user_id: @comment.user_id, post_id: @comment.post_id)
+       redirect_to posts_path
+   end
 
     def destroy
         @comment = Comment.find(params[:id])
