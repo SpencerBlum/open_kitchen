@@ -23,3 +23,17 @@ Things you may want to cover:
 
 * ...
 # open_kitchen
+
+# Model
+User - add admin:boolean
+
+# Welcome Page 
+
+* Welcome Message (o)
+* Logout (o)
+* Admin Menu Link
+  - New Restaurant Link
+  - Statistics Link
+
+* Restaurants List Link
+  - New Post Link 
