@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       @user = user
       if @user.is_owner
-        redirect_to controller: 'welcome', action: 'home'
+        redirect_to controller: 'welcome', action: 'admin'
       else
         redirect_to controller: 'posts', action: 'index'
       end  

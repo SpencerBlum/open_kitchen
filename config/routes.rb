@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get '/welcome' => 'welcome#home'
   get '/error' => 'welcome#error'
+  get '/admin' => 'welcome#admin'
+
 
   root 'posts#index'
 end

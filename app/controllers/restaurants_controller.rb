@@ -1,12 +1,12 @@
 class RestaurantsController < ApplicationController
     before_action :require_logged_in
-    @restaurants = Restaurant.all
+    # before_action :admin_user
     def index
         @restaurants = Restaurant.all
     end
 
     def show 
-        @restaurant = Restaurant.find(params[:id])
+        @restaurant = Restaurant.find(params[:id])  
     end
 
     def new
@@ -24,6 +24,7 @@ class RestaurantsController < ApplicationController
     end
 
     def edit
+        # byebug
         @restaurant = Restaurant.find(params[:id])  
     end
 

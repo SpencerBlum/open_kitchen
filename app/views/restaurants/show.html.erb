@@ -1,13 +1,17 @@
-
 <h3><%=@restaurant.name%></h3>
 <%=@restaurant.description%> <br>
 <li>
 <%=@restaurant.phonenumber%> <br>
 
-<%=@restaurant.email%> <br>
+<%#=@restaurant.email%> <br>
+<%=mail_to @restaurant.email,@restaurant.email%><br>
 <%=link_to @restaurant.website %> <br>
 </li>
 
 <br>
-<%=@restaurant.imageurl%>
+<img src=<%=@restaurant.imageurl%> alt=<%=@restaurant.imageurl%> height="100" width="100">
 
+<br>
+
+<%#= link_to "edit", edit_restaurant_path(@restaurant), :class => "postsbtn1" %>
+<%= button_to "edit", edit_restaurant_path(@restaurant), method: :get,:class => "postsbtn1" %>

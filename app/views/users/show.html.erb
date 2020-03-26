@@ -1,0 +1,15 @@
+<h3><%=@user.name%></h3>
+
+<li>
+
+<%#=@user.email%> <br>
+<%=mail_to @user.email,@user.email%><br>
+</li>
+
+<br>
+<img src=<%=@user.imageurl%> alt=<%=@user.imageurl%> height="300" width="300">
+
+<br>
+
+<%#= link_to "edit", edit_user_path(@user), :class => "postsbtn1" %>
+<%= button_to "edit", edit_user_path(@user), method: :get,:class => "postsbtn1" %>

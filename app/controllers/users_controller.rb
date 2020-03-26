@@ -1,10 +1,7 @@
 class UsersController < ApplicationController
     def index
       if admin_user
-      @users = User.all
-      else
-        flash[:message] = "You can not access admin menu"
-        redirect_to controller: 'welcome', action: 'error'  
+        @users = User.all
       end
     end
 
@@ -17,7 +14,7 @@ class UsersController < ApplicationController
       if @user
         session[:user_id] = @user.id
         if @user.is_owner
-          redirect_to controller: 'welcome', action: 'home' 
+          redirect_to controller: 'welcome', action: 'admin' 
         else
           redirect_to controller: 'posts', action: 'index' 
         end   
@@ -31,9 +28,31 @@ class UsersController < ApplicationController
       # redirect_to controller: 'welcome', action: 'home'  
     end
   
+    def show
+      if admin_user
+        @user = User.find(params[:id])
+      end
+    end
+
+    def edit
+      # byebug
+      if admin_user
+      @user = User.find(params[:id])  
+      end
+    end
+
+    def update
+        @user = User.find(params[:id])
+        @user.update(user_params)
+        if @user.save
+          redirect_to @user
+        else
+          render :edit
+        end
+    end
     private
   
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :imageurl, :is_owner)
     end
 end

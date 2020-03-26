@@ -14,11 +14,19 @@ class ApplicationController < ActionController::Base
         if !logged_in?
             flash[:message] = 'Login needed'
             redirect_to(controller: 'sessions', action: 'new') unless logged_in?
+        else
+            return true
         end
         # return redirect_to(controller: 'sessions', action: 'new') unless logged_in?
     end
 
     def admin_user
-        !!current_user.is_owner
+        if !current_user.is_owner
+            flash[:message] = "You can not access admin menu"
+            redirect_to controller: 'welcome', action: 'error'  
+        else
+            return true    
+        end    
+        
     end
 end
