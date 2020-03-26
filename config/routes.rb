@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
 
-  root 'welcome#home'
-
-
+  get '/welcome' => 'welcome#home'
+  root 'posts#index'
 end

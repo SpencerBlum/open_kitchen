@@ -10,7 +10,11 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       @user = user
-      redirect_to controller: 'welcome', action: 'home'
+      if @user.is_owner
+        redirect_to controller: 'welcome', action: 'home'
+      else
+        redirect_to controller: 'posts', action: 'index'
+      end  
     else
       flash[:message] = 'User does not exists'
       redirect_to controller: 'sessions', action: 'new'

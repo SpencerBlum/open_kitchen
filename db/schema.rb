@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_180348) do
+ActiveRecord::Schema.define(version: 2020_03_25_193727) do
 
   create_table "comments", force: :cascade do |t|
     t.string "message"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_180348) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.boolean "is_owner"
   end
 
 end

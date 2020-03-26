@@ -13,6 +13,12 @@ Comment.destroy_all
 
 puts "Your data is destroyed"
 
+
+User.create(email:'admin@gmail.com', password: '1', first_name: 'admin', last_name: 'open kitchen', imageurl: "https://dl.airtable.com/.attachmentThumbnails/1ee9b5b0a9245281bd7857835ef256d8/ebb993b2",is_owner:true )
+User.create(email:'spencerblum@gmail.com', password: '1', first_name: 'Spencer', last_name: 'Blum', imageurl: "https://dl.airtable.com/.attachmentThumbnails/1ee9b5b0a9245281bd7857835ef256d8/ebb993b2",is_owner:true )
+User.create(email:'tiburon.special@gmail.com', password: '1', first_name: 'Tiburon', last_name: 'Special', imageurl: "https://dl.airtable.com/.attachmentThumbnails/1ee9b5b0a9245281bd7857835ef256d8/ebb993b2",is_owner:true )
+User.create(email:'thechanmoon@gmail.com', password: '1', first_name: 'Chan', last_name: 'Park', imageurl: "https://dl.airtable.com/.attachmentThumbnails/1ee9b5b0a9245281bd7857835ef256d8/ebb993b2",is_owner:true )
+
 10.times do
     User.create(email: Faker::Internet.email, password: '1234', first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, imageurl: "https://dl.airtable.com/.attachmentThumbnails/1ee9b5b0a9245281bd7857835ef256d8/ebb993b2" )
 end

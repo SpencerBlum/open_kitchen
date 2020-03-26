@@ -1,15 +1,21 @@
 class UsersController < ApplicationController
     def new
+      @user = User.new
     end
   
     def create
       @user = User.create(user_params)
       if @user
         session[:user_id] = @user.id
-        redirect_to controller: 'welcome', action: 'home' 
+        if @user.is_owner
+          redirect_to controller: 'welcome', action: 'home' 
+        else
+          redirect_to controller: 'posts', action: 'index' 
+        end   
       else
         flash[:message] = "Can't create user #{user_params[:first_name]}"
         redirect_to controller: 'users', action: 'new' 
+        # redirect_to new_user_path 
       end
       # return redirect_to controller: 'users', action: 'new' unless @user.save
       # session[:user_id] = @user.id
