@@ -5,20 +5,20 @@ class User < ApplicationRecord
     has_many :posts, through: :comments
     validates :email, uniqueness: true
     def name 
-        self.first_name + ' ' + self.last_name 
+        first_name + ' ' + last_name 
     end
 
     def comment_by_user
-        self.comments.count
+        comments.count
     end
     
     def user_created
-        self.created_at
+        created_at
     end
     
     
-    def name_and_comments(name)
-        "#{name} has #{self.comment_by_user} comments "
+    def name_and_comments(user)
+        "#{user.name} has #{user.comment_by_user} comments "
     end
 
     def restaurant_owner(user)
@@ -30,10 +30,24 @@ class User < ApplicationRecord
     end
 
     def account_created
-        "User created account on #{self.created_at}"
+        "User created account on #{created_at}"
     end
 
-    
+    def character_counts
+        #inject { |sum, n| sum + n } 
 
-    
+        sumArray = comments.map do |comment|
+            comment.character_counts
+            # puts comment.character_counts
+        end
+        
+        sumArray.inject { |sum, n| sum + n } 
+
+        # sum = 0
+        # comments.each do |comment|
+        #     sum = sum + comment.character_counts
+        #     byebug
+        # end  
+        # sum
+    end
 end

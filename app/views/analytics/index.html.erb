@@ -1,17 +1,18 @@
-analytic tests  <br>
+<h1>Analytics  </h1>
 
-Total Posts: <%= @posts.count%> <br>
-Total Comments: <%= @comments.count%> <br>
+Total Posts: <%= Post.total_count%> <br>
+Total Comments: <%= Comment.total_count%> <br>
 Restaurants with Posts: <%= @restaurants.restaurants_with_posts %>
-<br><br>
+<br><li>
+<ul>
 <% @users.each do  |user| %>
-Username: <%=user.name%> <br>
 
-<%=user.name_and_comments(user.name)%>  <br>
-Characters used:  <br>
-Created at:     <br> <br>
-<%=user.restaurant_owner(user)%><br>
-<%=user.account_created%> <br>
+    <li>Username: <%=user.name%> </li>
 
-<%end%> <br><br>
-
+    <li><%=user.name_and_comments(user)%>  </li>
+    <li>Characters used:  <%=user.character_counts%> </li>
+    <li><%=user.restaurant_owner(user)%></li>
+    <li><%=user.account_created%> </li>
+    <br><br>
+<%end%> 
+<ul>
