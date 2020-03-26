@@ -36,4 +36,10 @@ User - add admin:boolean
   - Statistics Link
 
 * Restaurants List Link
-  - New Post Link 
+  - New Post Link
+
+  Thursday 
+  Chan 
+  - finish edit and new for restaurants
+  - work on the analytics page
+  - connect app flow together with links and work on css 

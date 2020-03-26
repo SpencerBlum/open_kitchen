@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :restaurants
   #resources :comments, except: [:new]
   resources :posts do
-    resources :comments, only: [:index, :new, :create, :edit, :update]
+    resources :comments, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   #get '/posts/:post_id/comments/new', to :'comments#new', as: 'new_comment'

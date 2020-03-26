@@ -1,29 +1,36 @@
-<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-  <input type=submit value='logout'>
-<% end %>
 
+<img class="header-logo center" src="https://dl.airtable.com/.attachmentThumbnails/2638db50408214b30540aac1b0c5eee1/4ce89b4c" alt="HTML5 Icon" >
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+  <input type=submit value='logout', class = "postsbtn1">
+<% end %>
+<%= link_to "All Restaurants", restaurants_path, :class => "postsbtn1"%>
+<%= link_to "My Profile", posts_path, :class => "postsbtn1"%>
+<%= link_to "Add a comment", posts_path, :class => "postsbtn1"%>
 <h1>Feed</h1>
 
 <%@posts.each do |post|%>
 <div class = "post_div">
 <div class = "text_div">
 <h3 class = "blue-text"> <%= link_to post.restaurant.name, restaurant_path(post.restaurant.id) %> </h3>  
-<img src="https://dl.airtable.com/.attachmentThumbnails/e90acd19635b360ba75a5e0d47cbef0f/d76972aa" style="height:100px;">
 <h4> <%= post.title %> </h4>  
 
 <h5> <%= post.message %> </h5>
-<h5>comments:</h5>
+<img src="https://dl.airtable.com/.attachmentThumbnails/e90acd19635b360ba75a5e0d47cbef0f/d76972aa" style="height:100px;">
 
+<div class = "message_div">
+<p>
 <%post.comments.each do |comment|%>
-    <%=comment.user.name%><br><br>
+    <%=comment.user.name + ": "%>
    <%=comment.message%> 
    <%if comment.user.id == session[:user_id] %>
-   <%= link_to "Edit", edit_post_comment_path(post,comment) %><br>
-  
+   <%= link_to "edit", edit_post_comment_path(post,comment), :class => "postsbtn1" %>
+  <%= link_to "delete", post_comment_path(post,comment), :method => :delete, :class => "postsbtn1" %>
    <%end%> <br><br>
     <%end%>
+</p>
+</div>
 
-<%= link_to "Add a comment", new_post_comment_path(post)%>
+<%= link_to "Add a comment", new_post_comment_path(post), :class => "postsbtn1"%>
 </div>
 </div>
 <%end%>
