@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+    def index
+      if admin_user
+      @users = User.all
+      else
+        flash[:message] = "You can not access admin menu"
+        redirect_to controller: 'welcome', action: 'error'  
+      end
+    end
+
     def new
       @user = User.new
     end

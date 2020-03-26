@@ -23,14 +23,18 @@
     <%=comment.user.name + ": "%>
    <%=comment.message%> 
    <%if comment.user.id == session[:user_id] %>
-   <%= link_to "edit", edit_post_comment_path(post,comment), :class => "postsbtn1" %>
-  <%= link_to "delete", post_comment_path(post,comment), :method => :delete, :class => "postsbtn1" %>
+   <%#= link_to "edit", edit_post_comment_path(post,comment), :class => "postsbtn1" %>
+   <%= button_to "edit", edit_post_comment_path(post,comment), method: :get,:class => "postsbtn1" %>
+  <%#= link_to "delete", post_comment_path(post,comment), :method => :delete, :class => "postsbtn1" %>
+  <%= button_to "delete", post_comment_path(post,comment), method: :delete, data: { confirm: 'are u sure lol' }, :class => "postsbtn1" %> 
+ 
    <%end%> <br><br>
     <%end%>
 </p>
 </div>
 
-<%= link_to "Add a comment", new_post_comment_path(post), :class => "postsbtn1"%>
+<%#= link_to "Add a comment", new_post_comment_path(post), :class => "postsbtn1"%>
+<%= button_to "Add a comment", new_post_comment_path(post), method: :get, :class => "postsbtn1"%>
 </div>
 </div>
 <%end%>

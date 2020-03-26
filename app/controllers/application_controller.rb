@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
         end
         # return redirect_to(controller: 'sessions', action: 'new') unless logged_in?
     end
+
+    def admin_user
+        !!current_user.is_owner
+    end
 end

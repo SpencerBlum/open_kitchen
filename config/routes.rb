@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :users , only: [:new, :create]
+  #resources :users , only: [:new, :create]
+  resources :users
   resources :restaurants
   #resources :comments, except: [:new]
   resources :posts do
@@ -19,5 +20,7 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
 
   get '/welcome' => 'welcome#home'
+  get '/error' => 'welcome#error'
+
   root 'posts#index'
 end
