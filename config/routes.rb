@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   get '/error' => 'welcome#error'
   get '/admin' => 'welcome#admin'
 
+  get '/analytics' => 'analytics#index'
+
 
   root 'posts#index'
 end

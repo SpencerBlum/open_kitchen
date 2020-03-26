@@ -42,4 +42,6 @@ User - add admin:boolean
   Chan 
   - finish edit and new for restaurants
   - work on the analytics page
-  - connect app flow together with links and work on css 
+  - connect app flow together with links and work on css
+  - we need more class methods
+  - currently have 1 

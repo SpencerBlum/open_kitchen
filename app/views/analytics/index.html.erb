@@ -1,0 +1,17 @@
+analytic tests  <br>
+
+Total Posts: <%= @posts.count%> <br>
+Total Comments: <%= @comments.count%> <br>
+Restaurants with Posts: <%= @restaurants.restaurants_with_posts %>
+<br><br>
+<% @users.each do  |user| %>
+Username: <%=user.name%> <br>
+
+<%=user.name_and_comments(user.name)%>  <br>
+Characters used:  <br>
+Created at:     <br> <br>
+<%=user.restaurant_owner(user)%><br>
+<%=user.account_created%> <br>
+
+<%end%> <br><br>
+

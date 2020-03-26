@@ -37,7 +37,8 @@ border: solid grey .25px;
 }
 
 .text_div {
-    margin-left: 20px; 
+    margin-left: 20px;
+    margin-bottom: 20px; 
 }
 
 .background_div {
@@ -49,6 +50,7 @@ border: solid grey .25px;
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
+    font-size: 14px;
 
 
 }
