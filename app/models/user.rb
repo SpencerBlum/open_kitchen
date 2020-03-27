@@ -59,5 +59,4 @@ class User < ApplicationRecord
         post.likes.where(user_id: id).any?
       
       end
-      
 end

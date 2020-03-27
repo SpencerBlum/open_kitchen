@@ -10,14 +10,15 @@
 <img src=<%=post.restaurant.imageurl%> alt=<%="@restaurant.imageurl"%> height="100" >
 <h4> <%= post.title %> </h4>  
 
-<% if session[:user_id] && @user.likes?(post) %>
-<%= link_to "Unlike", url: "/likes/#{post.id}", method: :delete %>
-<% else %>
-<%= link_to "Like",  url: "/likes/#{post.id}", method: :post %>
-<% end %>
-
-
 <h5> <%= post.message %> </h5> 
+
+<% if session[:user_id] && @user.likes?(post) %>
+
+<%= link_to "Unlike",post_like_path(post), method: :delete %>
+<% else %>
+<%= link_to "Like",  post_like_path(post), method: :post %>
+<% end %>
+<%= post.likes.count%>
 
 <div class = "message_div">
 
@@ -25,8 +26,6 @@
 <img class= "message-image" src=<%=comment.user.imageurl%> alt=<%=@user.imageurl%> >
     <%=link_to comment.user.name, comment.user %>
 
-
-    
    <%=comment.message%>  <br> 
  
    <%if comment.user.id == session[:user_id] %>

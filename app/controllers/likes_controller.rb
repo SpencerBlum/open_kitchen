@@ -2,26 +2,17 @@
 class LikesController < ApplicationController
 
 
-    def new
-        byebug
-    end
-
-    def show
-        byebug
-    end
     def create
-        byebug
-        @post.likes.where(user_id: current_user.id).first_or_create
+        @post = Post.find(params[:post_id])
+        @like = Like.new(user_id: session[:user_id], post_id: @post.id)
+        @like.save
+        redirect_to posts_path
+      end
+
+      def destroy
+        @like = Like.find_by(post_id: params[:post_id])
+        @like.destroy
         redirect_to posts_path
       end
     
-    
-    
-      private
-    
-        def set_post
-    
-          @post = Post.find(params[:post_id])
-    
-        end
-end
+    end
