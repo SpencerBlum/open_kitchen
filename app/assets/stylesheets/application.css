@@ -62,6 +62,8 @@ margin-top: 10px;
 .text_div {
     margin-left: 20px;
     margin-bottom: 20px; 
+    font-family: arial;
+    font-size: 10px;
 }
 
 .background_div {
@@ -141,23 +143,57 @@ p {
     text-align: center;
     padding-left: 10px;
     padding-right: 10px;
+    margin-bottom: 3px;
     font-size: 12px;
     font-weight: bold;
     font-family: arial;
-    height: 20px;
+    height: 25px;
     border-radius: 10px;
     background: #fd7765;
+    border: none;
     color: white;
 }
 
+
 .postsbtn1:hover {
     font-size: 12px;
-    height: 20px;
+    height: 25px;
     font-weight: bold;
     font-family: arial;
     padding-left: 10px;
     padding-right: 10px;
+    margin-bottom: 3px;
     border-radius: 10px;
     background: #f78172;
     color: white;
 }
+
+/* Login */
+
+.login-logo {
+    height: 30px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.login-bg {
+    background-image: url("https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+    background-size: cover;
+}
+
+.login-div {
+    margin: 25%;
+    font-family: arial;
+    align-items: center;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    padding: 40px;
+    /* padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px; */
+    
+    font-size: 14px;
+}
+
+

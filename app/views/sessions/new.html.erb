@@ -1,11 +1,16 @@
+<div class = "login-bg">
+<div class = "login-div">
+<img class="login-logo center" src="https://dl.airtable.com/.attachmentThumbnails/2638db50408214b30540aac1b0c5eee1/4ce89b4c" alt="HTML5 Icon" >
 <%= form_for @user, url: login_path, method: :post do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email, required: true %>
+  <%= f.label :email %> <br> 
+  <%= f.email_field :email, required: true %> <br> <br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.label :password %> <br> 
+  <%= f.password_field :password %> <br>  <br> 
 
-  <%= f.submit "log in" %>
+  <%= f.submit "log in" %> <br> <br>
   Or <%= link_to(controller: 'users', action: 'new') { 'sign up' } %>
 <% end %>
+</div>
+</div>
  
