@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   resources :users
   resources :restaurants
   #resources :comments, except: [:new]
-  resources :posts do
+  resources :posts, except: [:new, :create] do
     resources :comments, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   #get '/posts/:post_id/comments/new', to :'comments#new', as: 'new_comment'
-  #get '/comments/new/:id', to: 'comments#new', as:'new_comment'
-  #post '/comments/:id', to: 'comments#create'
+  get '/posts/new/:id', to: 'posts#new', as:'new_post'
+  post '/posts/:id', to: 'posts#create'
 
   # get '/comments/edit/:id', to: 'comments#edit', as:'edit_comment'
   # patch '/comments/:id', to: 'comments#update'

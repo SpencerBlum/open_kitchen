@@ -9,7 +9,4 @@ class AnalyticsController < ApplicationController
     end
 
 
-
-
-
 end

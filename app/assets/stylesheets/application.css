@@ -33,7 +33,30 @@ padding: 10px;
 margin-left: 70px;
 margin-right: 70px;
 margin-bottom: 15px;
+margin-top: 10px;
 border: solid grey .25px;
+}
+.round-image{
+    display: block;
+margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+    border-radius: 50%;
+    border: solid #fd7765 10.25px;
+    width: 200px;
+}
+.message-image{
+    border-radius: 50%;
+    border: solid #fd7765 .25px;
+    width: 30px;
+    height: 30px;
+}
+
+.center_div{
+    align-items: center;
+    text-align: center;
+    display: block;
+
 }
 
 .text_div {
@@ -77,12 +100,14 @@ border: solid grey .25px;
 
     /* text-align: center; */
     /* color: white; */
+ 
     font-size: 20px;
     font-family: arial;
 }
 
 h3 {
     /* color: white; */
+
     font-size: 20px;
     font-family: arial;
 }

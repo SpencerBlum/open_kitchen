@@ -5,8 +5,25 @@ class PostsController < ApplicationController
         @posts = Post.all
     end
 
+    def new
+        @post = Post.new
+        @restaurant = Restaurant.find(params[:id])
+    end
+
+    def show
+        @post = Post.find(params[:id])
+    end
+  
+    def create
+        @restaurant = Restaurant.find(params[:id])
+        @post = Post.new(title: params[:post][:title], message: params[:post][:message], restaurant_id: @restaurant.id)
+        @post.save
+        redirect_to post_path(@post)
+    end
 
 
-
-
+    # private
+    # def post_params
+    #     params.require(:post).permit(:title, :message, :restaurant_id, :id)
+    # end
 end
