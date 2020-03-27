@@ -39,6 +39,13 @@ puts "2"
 end
 puts "3"
 
+   
+        Like.create(user_id: User.first.id, post_id: Post.all.sample.id)
+        Like.create(user_id: User.second.id, post_id: Post.all.sample.id)
+        Like.create(user_id: User.third.id, post_id: Post.all.sample.id)
+        Like.create(user_id: User.fourth.id, post_id: Post.all.sample.id)
+    
+
 
     Comment.create(message: Faker::Restaurant.review, user_id: User.first.id, post_id: Post.all.sample.id)
     Comment.create(message: Faker::Restaurant.review, user_id: User.second.id, post_id: Post.all.sample.id)

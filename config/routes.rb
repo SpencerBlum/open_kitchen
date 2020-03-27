@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   get '/posts/new/:id', to: 'posts#new', as:'new_post'
   post '/posts/:id', to: 'posts#create'
 
+  post '/likes/:id', to: 'likes#create'
+  delete '/likes/:id', to: 'likes#delete'
+
+  #get '/posts/:post_id/likes/new', to:'likes#new', as: 'new_like'
+  
+
   # get '/comments/edit/:id', to: 'comments#edit', as:'edit_comment'
   # patch '/comments/:id', to: 'comments#update'
 

@@ -4,6 +4,8 @@ class User < ApplicationRecord
     has_many :comments
     has_many :posts, through: :comments
     validates :email, uniqueness: true
+    has_many :likes
+    has_many :posts, through: :likes
     def name 
         first_name + ' ' + last_name 
     end
@@ -49,5 +51,13 @@ class User < ApplicationRecord
         #     byebug
         # end  
         # sum
+
+       
     end
+    def likes?(post)
+
+        post.likes.where(user_id: id).any?
+      
+      end
+      
 end
