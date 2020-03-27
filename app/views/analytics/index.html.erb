@@ -1,8 +1,8 @@
 <h1>Analytics  </h1>
 
-Total Posts: <%= Post.total_count%> <br>
-Total Comments: <%= Comment.total_count%> <br>
-Restaurants with Posts: <%= @restaurants.restaurants_with_posts %>
+Total Posts: <%= pluralize(Post.total_count, 'post')%> <br>
+Total Comments: <%= pluralize(Comment.total_count, 'comment')%> <br>
+Restaurants with Posts: <%= pluralize(@restaurants.restaurants_with_posts, 'post') %>
 <br><li>
 <ul>
 <% @users.each do  |user| %>
@@ -11,6 +11,7 @@ Restaurants with Posts: <%= @restaurants.restaurants_with_posts %>
 
     <li><%=user.name_and_comments(user)%>  </li>
     <li>Characters used:  <%=user.character_counts%> </li>
+    <li>Characters used average:  <%=user.character_count_avg%> </li>  
     <li><%=user.restaurant_owner(user)%></li>
     <li><%=user.account_created%> </li>
     <br><br>

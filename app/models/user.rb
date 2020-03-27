@@ -34,20 +34,25 @@ class User < ApplicationRecord
     end
 
     def character_counts
-        #inject { |sum, n| sum + n } 
-
-        sumArray = comments.map do |comment|
-            comment.character_counts
-            # puts comment.character_counts
-        end
+        # comments.map do |comment|
+        #     comment.character_counts
+        # end.inject { |sum, n| sum + n } 
         
-        sumArray.inject { |sum, n| sum + n } 
+        comments.length > 0 ? comments.map do |comment|
+            comment.character_counts
+        end.inject { |sum, n| sum + n } : 0 
+    
+    end
 
-        # sum = 0
-        # comments.each do |comment|
-        #     sum = sum + comment.character_counts
-        #     byebug
-        # end  
-        # sum
+
+
+
+    def character_count_avg
+        # if comments && character_counts
+        #     character_counts / comments.length
+        # else
+        #     0
+        # end
+        character_counts > 0 ? character_counts / comments.length : 0
     end
 end
