@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
     def require_logged_in
         if !logged_in?
-            flash[:message] = 'Login needed'
+            # flash[:message] = 'Login needed'
             redirect_to(controller: 'sessions', action: 'new') unless logged_in?
         else
             return true
