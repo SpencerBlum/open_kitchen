@@ -10,6 +10,10 @@ class User < ApplicationRecord
         first_name + ' ' + last_name 
     end
 
+    def self.user_all
+        User.all
+    end
+
     def comment_by_user
         comments.count
     end
@@ -17,17 +21,20 @@ class User < ApplicationRecord
     def user_created
         created_at
     end
+
+    def user_updated
+        updated_at
+    end
     
-    
-    def name_and_comments(user)
-        "#{user.name} has #{user.comment_by_user} comments "
+    def name_and_comments()
+        "#{name} has "+ ActionController::Base.helpers.pluralize(comment_by_user, "comment")
     end
 
-    def restaurant_owner(user)
-        if user.is_owner
-        "#{user.name} is a owner "
+    def restaurant_owner()
+        if is_owner
+        "#{name} is an owner "
         else
-        "#{user.name} is not a owner"
+        "#{name} is not an owner"
         end
     end
 
@@ -35,25 +42,37 @@ class User < ApplicationRecord
         "User created account on #{created_at}"
     end
 
-    def character_counts
-        #inject { |sum, n| sum + n } 
 
-        sumArray = comments.map do |comment|
-            comment.character_counts
-            # puts comment.character_counts
-        end
-        
-        sumArray.inject { |sum, n| sum + n } 
-
-        # sum = 0
-        # comments.each do |comment|
-        #     sum = sum + comment.character_counts
-        #     byebug
-        # end  
-        # sum
-
-       
+    def account_updated
+        "User updated account on #{updated_at}"
     end
+
+    def character_counts
+        # comments.map do |comment|
+        #     comment.character_counts
+        # end.inject { |sum, n| sum + n } 
+        
+        comments.length > 0 ? comments.map do |comment|
+            comment.character_counts
+        end.inject { |sum, n| sum + n } : 0 
+    
+    end
+
+    def character_count_avg
+        # if comments && character_counts
+        #     character_counts / comments.length
+        # else
+        #     0
+        # end
+        character_counts > 0 ? character_counts / comments.length : 0
+    end
+
+    def likes_counts
+        posts.length > 0 ? posts.map do |post|
+            post.likes_count
+        end.inject { |sum, n| sum + n } : 0 
+    end
+
     def likes?(post)
 
         post.likes.where(user_id: id).any?
