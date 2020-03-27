@@ -1,6 +1,6 @@
 
 class LikesController < ApplicationController
-
+    before_action :require_logged_in,
 
     def create
         @post = Post.find(params[:post_id])
@@ -10,7 +10,8 @@ class LikesController < ApplicationController
       end
 
       def destroy
-        @like = Like.find_by(post_id: params[:post_id])
+        # byebug
+        @like = Like.find_by(post_id: params[:post_id],user_id: current_user.id)
         @like.destroy
         redirect_to posts_path
       end

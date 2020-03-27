@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
+    before_action :require_logged_in, except: [:new, :create, :edit, :update]
+    before_action :admin_user , except: [:new, :create, :show]
     def index
-      if admin_user
+      # if admin_user
         @users = User.all
-      end
+      # end
     end
 
     def new
@@ -29,16 +31,16 @@ class UsersController < ApplicationController
     end
   
     def show
-      if admin_user
+      # if admin_user
         @user = User.find(params[:id])
-      end
+      # end
     end
 
     def edit
       # byebug
-      if admin_user
+      # if admin_user
       @user = User.find(params[:id])  
-      end
+      # end
     end
 
     def update

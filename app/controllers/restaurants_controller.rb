@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
     before_action :require_logged_in
     # before_action :admin_user
+    before_action :admin_user , except: [:index, :show]
     def index
         @restaurants = Restaurant.all
     end
